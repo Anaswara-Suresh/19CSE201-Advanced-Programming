@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+class BankAccount{
+    private:
+    string name;
+    int accno;
+    float balance;
+    public:
+    void details(string n,int a,float b){
+        name=n;
+        accno=a;
+        balance=b;
+        cout<<"Account Holder: "<<name<<endl<<"Account Number: "<<accno<<endl<<"Current Balance: ₹"<<balance;
+    }
+    void withdraw(float w){
+        
+        if(balance<w){
+            cout<<endl<<"Insufficient balance or invalid withdrawal amount.";
+        }
+       else{
+           balance=balance-w;
+       
+       cout<<endl<<"Withdrawn ₹"<<w<<" from the account.";}
+      
+    }
+    void deposit(float d){
+        balance=balance+d;
+        cout<<endl<<"Deposited ₹"<<d<<" into the account.";
+       
+    }
+    void edetails(){
+        cout<<endl<<"Account Holder: "<<name<<endl<<"Account Number: "<<accno<<endl<<"Current Balance: ₹"<<balance;
+    }
+   
+};
+
+int main() {
+   BankAccount B;
+   string name;
+   int accno;
+   float cb,d,b,wo,wt;
+   cin>>name>>accno>>b>>d>>wo>>wt;
+   B.details(name,accno,b);
+   B.deposit(d);
+   B.withdraw(wo);
+   B.withdraw(wt);
+   B.edetails();
+   
+  
+   
+    return 0;
+}
